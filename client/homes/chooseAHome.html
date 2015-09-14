@@ -1,0 +1,16 @@
+<template name="chooseAHome">
+  {{> navigation}}
+
+  <div class="container">
+    <h3> add a new home </h3> 
+
+      {{> addNewHome}}
+      <br> 
+    <h1> Home List </h1>
+
+    <br>
+      {{#each homes}}
+        {{> home}}
+      {{/each}}
+  </div>
+</template>

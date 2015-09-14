@@ -1,0 +1,9 @@
+<template name="resident">
+  <li class="{{#if checked}}checked{{/if}}">
+    <button class="delete">&times;</button>
+    <!-- set checkbox to hide other homes/set checked home as home for logged in user-->
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+  {{first}} {{last}} ({{user}}) <br>
+
+  </li>
+</template>
