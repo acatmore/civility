@@ -1,26 +1,24 @@
-<!-- <head>
-  <title>civility</title>
-</head>
-
-<body>
-  <h1>Welcome to Civility's Finance Grid</h1>
-
-  {{#each userSetUp}}
-    {{>user}}
-  {{/each}}
-  <hr>
-
-</body>
-
-<template name="setUp">
-  <form class="new-task">
-    <div>
-      <input type="text" name="text" placeholder="Type to add new users" />
-    </div>
+<template name="financeSetup">
+  <form class="new-expense">
+    New expense: <br>
+  <select id="mySelect">
+    <option value="water">Sewage/Water </option>
+    <option value="media">Internet/Cable</option>
+    <option value="elect">Electricity</option> 
+    <option value="cleaning">Cleaning Supplies</option>
+    <option value="food">Food</option>
+    <option value="repairs">Repairs</option>
+    <option value="random">Misc.</option>
+  </select>
+    <input type="text" name="newExpenses">
+    <input type="submit" value="Submit">
   </form>
+    <br>
 </template>
 
-<template name="user">
-  <span class="text">{{name}} 
-  </span>
-</template> -->
+<template name="displayFinances">
+  <p>owner: {{userId}}</p>
+  <p>home: {{homeId}}</p>
+  <p>cost: {{amount}}</p>
+  <p>expense type: {{type}}</p>
+</template>

@@ -2,7 +2,11 @@
   {{> navigation}}
 
   <div class="container">
-    <h3> add a new home </h3> 
+    <h1> User login </h1>
+
+    {{> loginButtons}}
+    {{#if currentUser}}
+      <h3> add a new home </h3> 
 
       {{> addNewHome}}
       <br> 
@@ -12,5 +16,12 @@
       {{#each homes}}
         {{> home}}
       {{/each}}
+
+   {{else}}
+        <!-- make this go away when logged in  -->
+<!--         <h1> User login </h1> -->
+
+        {{> loginButtons}}
+    {{/if}}
   </div>
 </template>
