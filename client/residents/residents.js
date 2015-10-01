@@ -62,7 +62,7 @@ if (Meteor.isClient) {
         var newRent = event.target.rentPayment.value;
         Meteor.users.update({_id: user}, {$set: {"profile.rentPayment": newRent}});
 
-        vent.target.rentPayment.value = "";
+        event.target.rentPayment.value = "";
       },
       "submit .update-resident-email": function (event) {
         //prevent default browser form
@@ -71,7 +71,7 @@ if (Meteor.isClient) {
         var newEmail = event.target.email.value;
         Meteor.users.update({_id: user}, {$set: {"email": newEmail}});
 
-        vent.target.email.value = "";
+        event.target.email.value = "";
       }
     });
 
@@ -89,7 +89,7 @@ if (Meteor.isClient) {
           email: event.target.email.value,
           // home: this._id,
           name: event.target.firstName.value,
-          rentPayment: event.target.rentFraction.value
+          rentPayment: parseInt(event.target.rentFraction.value)
         };
         // var rentPercent = event.target.
         Meteor.call('addUser', details, function(err, newUserId) {

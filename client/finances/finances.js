@@ -8,7 +8,7 @@
       var homeId = this._id;
       var e = document.getElementById("mySelect");
       var type = e.options[e.selectedIndex].value;
-      var expense = event.target.newExpenses.value;
+      var expense = parseInt(event.target.newExpenses.value);
       var owner = Meteor.userId();
 
       Finances.insert({
@@ -17,9 +17,9 @@
         amount: expense,
         type: type
         // frequency
-      })
-
+      });
       event.target.newExpenses.value = "";
+
     }
   });
 // Template.oldChart.helpers({

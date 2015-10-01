@@ -14,6 +14,9 @@ if (Meteor.isClient) {
 Template.oldChart.helpers({
   findExpenses: function(userId) {
   return Finances.find({userId: userId})
+  },
+  findTotalExpense: function(total) {
+    return Finances.findOne({totalArray: total})
   }
 });
 
@@ -42,7 +45,7 @@ Template.oldChart.helpers({
       console.log(target);
       // Get value from form element
       var addressInput = event.target.address.value;
-      var rentTotalInput = event.target.rent.value;
+      var rentTotalInput = parseInt(event.target.rent.value);
       var homeNameInput = event.target.homeName.value;
       var residentId = [Meteor.userId()] //logged in user that creates home is made first resident by default
  
