@@ -14,6 +14,7 @@ if (Meteor.isClient) {
     // });
 
 
+
     Template.displayResidents.helpers({
       residents: function() {
         //ADD limitation for only this.id
@@ -43,6 +44,37 @@ if (Meteor.isClient) {
         return Finances.find();
       }
     })
+
+    Template.updateResident.events({
+      "submit .update-resident-name": function (event) {
+        //prevent default browser form
+        event.preventDefault();
+        var user = Meteor.userId();
+        var newName = event.target.name.value;
+        Meteor.users.update({_id: user}, {$set: {"profile.name": newName}});
+
+        event.target.name.value = "";
+      },
+      "submit .update-resident-rent": function (event) {
+        //prevent default browser form
+        event.preventDefault();
+        var user = Meteor.userId();
+        var newRent = event.target.rentPayment.value;
+        Meteor.users.update({_id: user}, {$set: {"profile.rentPayment": newRent}});
+
+        vent.target.rentPayment.value = "";
+      },
+      "submit .update-resident-email": function (event) {
+        //prevent default browser form
+        event.preventDefault();
+        var user = Meteor.userId();
+        var newEmail = event.target.email.value;
+        Meteor.users.update({_id: user}, {$set: {"email": newEmail}});
+
+        vent.target.email.value = "";
+      }
+    });
+
     Template.addNewResident.events({
       "submit .new-resident": function (event) {
         //prevent default browser form

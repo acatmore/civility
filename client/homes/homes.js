@@ -11,17 +11,26 @@ if (Meteor.isClient) {
 
   });
 
-
+Template.oldChart.helpers({
+  findExpenses: function(userId) {
+  return Finances.find({userId: userId})
+  }
+});
 
   Template.userPage.helpers({
       residents: function() {
       var home = Homes.findOne({_id: this._id});
       var residentArray = home.residentArray;
-     return Meteor.users.find({_id: {$in: residentArray}})
+      return Meteor.users.find({_id: {$in: residentArray}})
+
+      },
+      expense: function() {
+      var currentUser = Meteor.userId();
+      return Finances.find({userId: currentUser})
 
       },
       editingDoc: function(){
-          return Homes.findOne({_id: Session.get('selectedDocId')});
+      return Homes.findOne({_id: Session.get('selectedDocId')});
       }
 
   });
@@ -42,7 +51,7 @@ if (Meteor.isClient) {
         homeName: homeNameInput,
         address: addressInput,
         rentTotal: rentTotalInput,
-        residentArray: [{}], //array of user ids
+        residentArray: residentId, //array of user ids
         createdAt: new Date(), // current time
         owner: Meteor.userId() // _id of logged in user
       });

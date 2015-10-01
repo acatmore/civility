@@ -3,25 +3,22 @@
 
   <div class="container">
   {{> userHome}}
-  {{#each residents}}
-<!--  {{_id}}
- -->{{> chart}}
-  {{/each}}
-<!--   {{> oldChart}} -->
-      <br>
+  {{> oldChart residents=residents expense=expense}}
+  
+<!--       <br>
       <br>
     <h3> add a new resident </h3>
 
       {{> addNewResident}}
       <br>
 
-        <h3> add a new expense to the house </h3>
-        {{> displayResidents}}
-        {{> financeSetup}}
+        <h3> add your new expense to the house </h3>
 
-        {{#each expenses}}
+        {{> financeSetup}} -->
+
+<!--         {{#each expenses}}
           {{> displayFinances}}
-        {{/each}}
+        {{/each}} -->
   </div>
-
+<!--         {{> displayResidents}} -->
 </template>

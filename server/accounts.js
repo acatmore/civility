@@ -17,6 +17,6 @@
   });
 
 
-// Meteor.users.remove('Exb3LhpzmFxuHQAd5');
-// Meteor.users.remove('RM2ao2M8ZgucXYMYd');
-// Meteor.users.remove('tEXF8gmGQmaxyB73M');
+// Meteor.users.remove('SbkSABKHy4C6QM3qd');
+// Meteor.users.remove('zbgW9ZLMA5D7PYHYr');
+// Meteor.users.remove('HBk4kvqZgS3XzgwtK');

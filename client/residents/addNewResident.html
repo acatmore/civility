@@ -1,4 +1,6 @@
 <template name="addNewResident">
+  {{> navigation}}
+  <div class="container">
   <br>
   <form class="new-resident" method="post">
     First Name: <input type="text" name="firstName"><br>
@@ -34,4 +36,6 @@
   Remove resident by ID: <input type ="text" name="deleteID">
   <input type="submit" value="delete from home">
   </form>
+          {{> displayResidents}}
+  </div>
 </template>

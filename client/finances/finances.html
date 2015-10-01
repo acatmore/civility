@@ -1,19 +1,22 @@
 <template name="financeSetup">
+  {{> navigation}}
+  <div class="container">
   <form class="new-expense">
     New expense: <br>
   <select id="mySelect">
-    <option value="water">Sewage/Water </option>
-    <option value="media">Internet/Cable</option>
-    <option value="elect">Electricity</option> 
+    <option value="Sewage/Water">Sewage/Water </option>
+    <option value="Internet/Cable">Internet/Cable</option>
+    <option value="Electricity">Electricity</option> 
     <option value="cleaning">Cleaning Supplies</option>
     <option value="food">Food</option>
     <option value="repairs">Repairs</option>
-    <option value="random">Misc.</option>
+    <option value="Misc.">Misc.</option>
   </select>
     <input type="text" name="newExpenses">
     <input type="submit" value="Submit">
   </form>
     <br>
+  </div>
 </template>
 
 <template name="displayFinances">

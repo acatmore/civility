@@ -1,8 +1,24 @@
 <template name="updateResident">
-  {{#each residentInfo}}
-<!--     <form class="update-resident">
-      
-    </form> -->
-    {{> financeSetup}}
-  {{/each}}
+  {{> navigation}}
+  <div class="container">
+
+    <form class="update-resident-name">
+      Update your name: <input type="text" name="name">    
+      <input type="submit" name="submit">
+      <br>
+    </form>
+
+    <form class="update-resident-rent">
+      Update your rent portion: <input type="text" name="rentPayment">
+      <input type="submit" name="submit">
+       <br>
+    </form>
+
+    <form class="update-resident-email">
+      Update your email: <input type="text" name="email">
+      <input type="submit" name="submit">
+      <br>
+    </form>
+    
+  </div>
 </template>
