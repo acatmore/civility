@@ -1,4 +1,3 @@
-// Expenses = new Mongo.Collection("expenses");
 
 if (Meteor.isClient) {
 
@@ -15,8 +14,26 @@ Template.oldChart.helpers({
   findExpenses: function(userId) {
   return Finances.find({userId: userId})
   },
-  findTotalExpense: function(total) {
-    return Finances.findOne({totalArray: total})
+  findTotalExpense: function(userId) {
+    var user = Meteor.users.find({_id: userId});
+    var sum = user.profile.rentPayment;
+    var cursor = Finances.find({_id: userId});
+     cursor.forEach(function(finances){
+       sum = sum + finances.amount
+     });
+
+     return sum;
+  },
+  expenseAsPercentage: function(userId) {
+    var oneExpense = Finances.find({userId: userId});
+    var user = Meteor.users.find({_id: userId});
+    var sum = user.rentPayment;
+    var cursor = Finances.find({_id: userId});
+     cursor.forEach(function(finances){
+       sum = sum + finances.amount
+     });
+    var percent = (sum / oneExpense) * 100;
+    return percent ;
   }
 });
 

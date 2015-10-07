@@ -4,16 +4,6 @@ if (Meteor.isClient) {
   if(Meteor.user()) {
     Meteor.subscribe('myuser');
 }
-    // Template.updateResident.helpers({
-    //   residentInfo: function() {
-    //     var homeId = this._id;
-    //     for(i = 0; i < residentArray.length; i++) {
-    //       Homes.find({_id: homeId}, {residentArray: i}).fetch();
-    //     }
-    //   }
-    // });
-
-
 
     Template.displayResidents.helpers({
       residents: function() {
@@ -21,23 +11,6 @@ if (Meteor.isClient) {
         return Meteor.users.find().fetch();
       }
     });
-
-    // Template.chart.helpers({
-    //   residentDisplay: function() {
-    //     return Finances.find({
-    //       owner: Meteor.userId()
-    //     }).fetch();
-    //   }
-    // })
-
-    // Template.chart.helpers({
-    //   residents: function() {
-    //     Meteor.users
-    //   },
-    //   residentEmail: function() {
-    //     return Meteor.users.find().fetch();
-    //   }
-    // })
 
     Template.displayFinances.helpers({
       expenses: function() {
@@ -80,10 +53,6 @@ if (Meteor.isClient) {
         //prevent default browser form
         event.preventDefault();
         var homeId = this._id;
-
-        // var userName = Meteor.call('createUser');
-        // var firstName = event.target.firstName.value;
-        // var lastName = event.target.lastName.value;
         var currentUserId = Meteor.userId();
         var details = {
           email: event.target.email.value,
@@ -91,14 +60,12 @@ if (Meteor.isClient) {
           name: event.target.firstName.value,
           rentPayment: parseInt(event.target.rentFraction.value)
         };
-        // var rentPercent = event.target.
         Meteor.call('addUser', details, function(err, newUserId) {
           if (err) {
             console.error(err);
             return;
           }
 
-          //not working
           Homes.update(
             {_id: homeId}, 
             {$addToSet: {residentArray: newUserId}}
