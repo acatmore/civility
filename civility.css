@@ -2,13 +2,14 @@
 /* CSS declarations go here */
 body {
   font-family: sans-serif;
-background: rgba(91,173,236,1);
-background: -moz-linear-gradient(left, rgba(91,173,236,1) 0%, rgba(91,173,236,1) 67%, rgba(50,143,231,1) 100%);
+  background: rgba(91,173,236,1);
+  background-image: url("file://Users/acatmore/civility/client/green-trees.jpg");
+/*background: -moz-linear-gradient(left, rgba(91,173,236,1) 0%, rgba(91,173,236,1) 67%, rgba(50,143,231,1) 100%);
 background: -webkit-gradient(left top, right top, color-stop(0%, rgba(91,173,236,1)), color-stop(67%, rgba(91,173,236,1)), color-stop(100%, rgba(50,143,231,1)));
 background: -webkit-linear-gradient(left, rgba(91,173,236,1) 0%, rgba(91,173,236,1) 67%, rgba(50,143,231,1) 100%);
 background: -o-linear-gradient(left, rgba(91,173,236,1) 0%, rgba(91,173,236,1) 67%, rgba(50,143,231,1) 100%);
 background: -ms-linear-gradient(left, rgba(91,173,236,1) 0%, rgba(91,173,236,1) 67%, rgba(50,143,231,1) 100%);
-background: linear-gradient(to right, rgba(91,173,236,1) 0%, rgba(91,173,236,1) 67%, rgba(50,143,231,1) 100%);
+background: linear-gradient(to right, rgba(91,173,236,1) 0%, rgba(91,173,236,1) 67%, rgba(50,143,231,1) 100%);*/
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5badec', endColorstr='#328fe7', GradientType=1 );
   background-attachment: fixed;
 
@@ -22,6 +23,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5badec', end
   margin: 0;
 
   font-size: 14px;
+}
+
+.houseContainer {
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 100%;
+  background: rgba(91,173,236,1);
 }
 
 .container {

@@ -1,25 +1,11 @@
 <template name="userPage">
   {{> navigation}}
 
-  <div class="container">
+  <div class="houseContainer">
+
   {{> userHome}}
   {{> oldChart residents=residents expense=expense}}
   
-<!--       <br>
-      <br>
-    <h3> add a new resident </h3>
-
-      {{> addNewResident}}
-      {{> updateResident}}
-      <br>
-
-        <h3> add your new expense to the house </h3>
-
-        {{> financeSetup}} -->
-
-<!--         {{#each expenses}}
-          {{> displayFinances}}
-        {{/each}} -->
   </div>
 
 </template>

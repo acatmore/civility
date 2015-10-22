@@ -1,9 +1,8 @@
 <template name="chooseAHome">
   {{> navigation}}
-  {{> loginButtons}}
-  <div class="container">
 
-    <h1> User login </h1>
+  <div class="container">
+    {{> loginButtons}}
     {{#if currentUser}}
       <h3> add a new home </h3> 
 
@@ -15,7 +14,9 @@
       {{#each homes}}
         {{> home}}
       {{/each}}
+    {{else}}
 
+    <h1> User login </h1>
     {{/if}}
 
   </div>

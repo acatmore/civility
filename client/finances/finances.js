@@ -16,25 +16,10 @@
         userId: owner,
         amount: expense,
         type: type
-        // frequency
       });
       event.target.newExpenses.value = "";
 
     }
   });
-// Template.oldChart.helpers({
-//   $(function(){
-//     $(".chart li").hover(function(){
-//         $(this).addClass("hover");
-//         $('.output li')
-//         .css('visibility', 'hidden')//Hide all the li's
-//         .eq($(this).index())//Get the li at same index which triggered hover
-//         .css('visibility', 'visible');//Make it visible
-//     }, function(){
-//         $(this).removeClass("hover");
-//         $('.output li').css('visibility', 'hidden');
-//     });
 
-//   });
-// });
 
