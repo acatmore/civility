@@ -1,0 +1,26 @@
+
+.triangle-up {
+    width: 50%;
+    height: 0px;
+    padding-left:50%;
+    padding-bottom: 50%;
+    overflow: hidden;
+}
+.triangle-up div {
+    width: 0; 
+    height: 0;
+    margin-left:-300px;
+    border-left: 300px solid transparent;
+    border-right: 300px solid transparent;
+    border-bottom: 300px solid #4679BD;
+}
+.triangle-up p {
+    text-align: center;
+    top: 60px;
+    left: -47px;
+    position: relative;
+    width: 93px;
+    height: 93px;
+    margin: 0px;
+}
+

@@ -1,0 +1,18 @@
+<template name="addNewResident">
+  {{> navigation}}
+  <div class="container">
+  <br>
+  <form class="new-resident" method="post">
+    First Name: <input type="text" name="firstName"><br>
+    Email: <input type="text" name="email"><br>
+    Portion of Total Rent: <input type="test" name="rentFraction"><br>
+
+    <input type="submit" value="Add to Home">
+  </form>
+  <form class="delete-resident">
+  Remove resident by ID: <input type ="text" name="deleteID">
+  <input type="submit" value="delete from home">
+  </form>
+<!--           {{> displayResidents}} -->
+  </div>
+</template>

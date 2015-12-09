@@ -1,0 +1,27 @@
+<template name="addNewHome">
+        <form class="new-home" method="post">
+          Home Name:<br>
+          <input type="text" name="homeName" >
+          <br>
+          Address:<br>
+          <input type="text" name="address" >
+          <br>
+          Rent total:<br>
+          <input type="text" name="rent" >
+          <br>
+<!--           Residents:
+          1<input type="radio" name="residents" value="1">
+          2<input type="radio" name="residents" value="2">
+          3<input type="radio" name="residents" value="3">
+          4<input type="radio" name="residents" value="4">
+          5<input type="radio" name="residents" value="5">
+          6<input type="radio" name="residents" value="6"> -->
+          <br>
+          {{#each residents}}
+            {{> residentNames}}
+          {{/each}}
+          <br>
+          <input type="submit" value="Submit">
+        </form>
+
+</template>

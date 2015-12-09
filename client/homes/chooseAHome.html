@@ -1,0 +1,23 @@
+<template name="chooseAHome">
+  {{> navigation}}
+
+  <div class="container">
+    {{> loginButtons}}
+    {{#if currentUser}}
+      <h3> add a new home </h3> 
+
+      {{> addNewHome}}
+      <br> 
+    <h1> Home List </h1>
+
+    <br>
+      {{#each homes}}
+        {{> home}}
+      {{/each}}
+    {{else}}
+
+    <h1> User login </h1>
+    {{/if}}
+
+  </div>
+</template>

@@ -1,0 +1,35 @@
+
+<template name="oldChart"> 
+  <div id="container">
+    <div id="homeChart">
+      <ul class="chart">
+<!--       <li class="axis">>
+      </li> -->
+      {{#each residents}}
+        <li style="height:95%;">
+         <!--  {{findTotalExpense}} -->
+          <div class="percent">{{profile.rentPayment}}</div>
+          <div class="spenderName"><h2>{{profile.name}}</h2></div>
+          <div class="hiddenExpenses">
+            <table class="expenseTable" border="1" style="width: 100%">
+              <tr>
+                {{#each findExpenses _id}}
+            <!-- style="width: {{getWidth}}%" -->
+                <td>
+                  <div class="expenses">${{amount}} for {{type}}</div>
+                </td>
+                {{/each}}
+              </tr>
+            </table>
+          </div>
+<!--           <a> hover over me </a>
+          <div id="info">
+          </div> -->
+        </li>
+      {{/each}}
+
+      </ul>
+
+    </div>
+  </div>
+</template>
