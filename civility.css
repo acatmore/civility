@@ -3,14 +3,7 @@
 body {
   font-family: sans-serif;
   background: rgba(91,173,236,1);
-  background-image: url("file://Users/acatmore/civility/client/green-trees.jpg");
-/*background: -moz-linear-gradient(left, rgba(91,173,236,1) 0%, rgba(91,173,236,1) 67%, rgba(50,143,231,1) 100%);
-background: -webkit-gradient(left top, right top, color-stop(0%, rgba(91,173,236,1)), color-stop(67%, rgba(91,173,236,1)), color-stop(100%, rgba(50,143,231,1)));
-background: -webkit-linear-gradient(left, rgba(91,173,236,1) 0%, rgba(91,173,236,1) 67%, rgba(50,143,231,1) 100%);
-background: -o-linear-gradient(left, rgba(91,173,236,1) 0%, rgba(91,173,236,1) 67%, rgba(50,143,231,1) 100%);
-background: -ms-linear-gradient(left, rgba(91,173,236,1) 0%, rgba(91,173,236,1) 67%, rgba(50,143,231,1) 100%);
-background: linear-gradient(to right, rgba(91,173,236,1) 0%, rgba(91,173,236,1) 67%, rgba(50,143,231,1) 100%);*/
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5badec', endColorstr='#328fe7', GradientType=1 );
+  background-image: url("https://s3.amazonaws.com/civilityimages/buildings-598205_1280.jpg");
   background-attachment: fixed;
 
   position: absolute;
@@ -29,7 +22,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5badec', end
   max-width: 600px;
   margin: 0 auto;
   min-height: 100%;
-  background: rgba(91,173,236,1);
+  background: rgba(91,173,236,0);
 }
 
 .container {
@@ -40,8 +33,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5badec', end
 }
 
 header {
-  background: #d2edf4;
-  background-image: linear-gradient(to bottom, #d0edf5, #ele5f0 100%);
+  background: #303030;
   padding: 20px 15px 15px 15px;
   position: relative;
 }
@@ -64,24 +56,10 @@ form {
   position: relative;
 }
 
-.new-task input {
-  box-sizing: border-box;
-  padding: 10px 0;
-  background: transparent;
-  border: none;
-  width: 100%;
-  padding-right: 80px;
-  font-size: 1em;
-}
-
-.new-task input:focus{
-  outline: 0;
-}
-
 ul {
   margin: 0;
   padding: 0;
-  background: white;
+  background: #303030 ;
 }
 
 .delete {

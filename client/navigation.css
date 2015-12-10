@@ -8,6 +8,10 @@ nav ul {
   display: inline;
 }
 
+nav a {
+	color: #F0FFFF;
+}
+
 nav ul li {
   display: inline-block;
   list-style-type: none;
