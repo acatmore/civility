@@ -4,12 +4,14 @@ header .navigation {
 }
 
 nav ul {
-  margin: 0;
+  margin-left: 10%;
   display: inline;
 }
 
 nav a {
-	color: #F0FFFF;
+	color: #27ABAB;
+  text-decoration: none;
+  font-size: 24px;
 }
 
 nav ul li {
@@ -17,5 +19,6 @@ nav ul li {
   list-style-type: none;
   padding: 5px 10px;
   border: 1px;
-  background: 111;
+  background: rgb(255,255,255,.5);
 }
+

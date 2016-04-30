@@ -29,7 +29,7 @@ body {
   max-width: 600px;
   margin: 0 auto;
   min-height: 100%;
-  background: white;
+  background: rgb(0,0,0,.5);
 }
 
 header {
@@ -37,6 +37,7 @@ header {
   padding: 20px 15px 15px 15px;
   position: relative;
 }
+
 
 #login-buttons {
   display: block;
