@@ -1,0 +1,22 @@
+	<p> Nothing Here {{ 'yet' + '!'}}</p>
+
+
+<div ng-controller="NavigationCtrl">
+	<header class="navigation">
+		<nav>
+			<ul>
+				<li ng-repeat="page in navigation">
+					<a href={{page.URL}}>{{page.name}}</a></li>
+			</ul>
+		</nav>
+	</header>
+</div>
+
+<div ng-controller="HomesListCtrl">
+	<ul>
+		<li ng-repeat="home in homes">
+			{{home.name}}
+			<p>{{home.description}}</p>
+		</li>
+	</ul>
+</div>
