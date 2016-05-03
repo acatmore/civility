@@ -2,11 +2,13 @@
   "name": "civility",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": "meteor run",
+    "test:watch": "meteor test --driver-package sanjo:jasmine"
   },
   "dependencies": {
     "angular": "^1.5.5",
     "angular-meteor": "^1.3.10",
+    "angular-ui-router": "^0.2.18",
     "meteor-node-stubs": "~0.2.0"
   },
   "devDependencies": {

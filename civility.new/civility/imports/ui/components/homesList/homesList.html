@@ -1,7 +1,9 @@
 <home-add></home-add>
 <ul>
 	<li ng-repeat="home in homesList.homes">
-		{{home.name}}
+		<a ui-sref="homeDetails({homeId: home._id})">
+			{{home.name}}
+		</a>
 		<p>{{home.description}}</p>
 		<home-remove home="home"></home-remove>
 	</li>

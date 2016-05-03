@@ -1,5 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import uiRouter from 'angular-ui-router';
 
 import './homesList.html';
 import {Homes} from '../../../api/homes';
@@ -28,10 +29,22 @@ import {name as HomeRemove} from '../homeRemove/homeRemove';
 	export default angular.module(name, [
 		angularMeteor,
 		HomeAdd,
-		HomeRemove
+		HomeRemove,
+		uiRouter
 	]).component(name, {
 		templateUrl: `imports/ui/components/${name}/${name}.html`,
 		controllerAs: name,
 		controller: HomesList
-	});
+	})
+	.config(config);
+
+	function config($stateProvider) {
+		'ngInject';
+
+		$stateProvider
+			.state('homes', {
+				url: '/homes',
+				template: '<homes-list></homes-list>'
+			});
+	}
 
