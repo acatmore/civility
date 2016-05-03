@@ -3,8 +3,8 @@ import angularMeteor from 'angular-meteor';
 
 import './homesList.html';
 import {Homes} from '../../../api/homes';
-import { name as HomeAdd } from '../homeAdd/homeAdd';
-
+import {name as HomeAdd} from '../homeAdd/homeAdd';
+import {name as HomeRemove} from '../homeRemove/homeRemove';
 // if (Meteor.isClient) {
 
 	class HomesList {
@@ -27,7 +27,8 @@ import { name as HomeAdd } from '../homeAdd/homeAdd';
 	//create module
 	export default angular.module(name, [
 		angularMeteor,
-		HomeAdd
+		HomeAdd,
+		HomeRemove
 	]).component(name, {
 		templateUrl: `imports/ui/components/${name}/${name}.html`,
 		controllerAs: name,
