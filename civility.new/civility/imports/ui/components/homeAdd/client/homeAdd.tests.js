@@ -1,3 +1,5 @@
+import {Meteor} from 'meteor/meteor';
+
 import { name as HomeAdd } from '../homeAdd';
 import { Homes } from '../../../../api/homes';
 import 'angular-mocks';
@@ -11,7 +13,11 @@ describe('homeAdd', () => {
     let controller;
     const home = {
       name: 'Foo',
-      description: 'Birthday of Foo'
+      description: 'Birthday of Foo',
+      public: true
+    };
+    const user = {
+      _id: 'userId'
     };
  
     beforeEach(() => {
@@ -20,6 +26,8 @@ describe('homeAdd', () => {
           $scope: $rootScope.$new(true)
         });
       });
+
+      spyOn(Meteor, 'user').and.returnValue(user);
     });
  
     describe('reset()', () => {
@@ -42,7 +50,12 @@ describe('homeAdd', () => {
       });
  
       it('should insert a new home', () => {
-        expect(Homes.insert).toHaveBeenCalledWith(home);
+        expect(Homes.insert).toHaveBeenCalledWith({
+          name: home.name,
+          description: home.description,
+          public: home.public,
+          owner: user._id
+        });
       });
  
       it('should call reset()', () => {

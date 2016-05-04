@@ -2,7 +2,15 @@ The home you selected is:
 <form>
 	Home Name: <input type="text" ng-model="homeDetails.home.name" />
 	Description: <input type="text" ng-model="homeDetails.home.description" />
+	Public Home? <input type="checkbox" ng-model="homeDetails.home.public" >
 	<button ng-click="homeDetails.save()">Save</button>
 </form>
 
 <button ui-sref="homes">Back</button>
+
+<ul>
+	Users:
+	<li ng-repeat="user in homeDetails.users">
+		<div> {{user.emails[0].address}}</div>
+	</li>
+</ul>

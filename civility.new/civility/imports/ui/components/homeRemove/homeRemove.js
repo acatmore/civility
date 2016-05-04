@@ -4,7 +4,7 @@ import angularMeteor from 'angular-meteor';
 import {Meteor} from 'meteor/meteor';
  
 import './homeRemove.html';
-import {homes} from '../../../api/homes';
+import {homes} from '../../../api/homes/index';
  
 class HomeRemove {
   remove() {

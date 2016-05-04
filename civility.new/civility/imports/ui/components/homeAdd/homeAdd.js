@@ -4,7 +4,7 @@ import angularMeteor from 'angular-meteor';
 import {Meteor} from 'meteor/meteor';
  
 import './homeAdd.html';
-import {Homes} from '../../../api/homes';
+import {Homes} from '../../../api/homes/index';
  
 class HomeAdd {
 	constructor() {

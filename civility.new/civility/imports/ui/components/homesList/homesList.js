@@ -3,7 +3,7 @@ import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 
 import './homesList.html';
-import {Homes} from '../../../api/homes';
+import {Homes} from '../../../api/homes/index';
 import {name as HomeAdd} from '../homeAdd/homeAdd';
 import {name as HomeRemove} from '../homeRemove/homeRemove';
 // if (Meteor.isClient) {
@@ -13,6 +13,8 @@ import {name as HomeRemove} from '../homeRemove/homeRemove';
 			'ngInject';
 			
 			$reactive(this).attach($scope);
+
+			this.subscribe('homes');
 
 			this.helpers({
 				homes() {

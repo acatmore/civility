@@ -1,5 +1,5 @@
 import {Meteor} from 'meteor/meteor';
-import {Homes} from '../imports/api/homes';
+import {Homes} from '../api/homes';
 
 Meteor.startup(() => {
 	if (Homes.find().count() === 0) {

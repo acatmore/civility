@@ -14,12 +14,18 @@ class HomeDetails {
     
     this.homeId = $stateParams.homeId;
 
+    this.subscribe('homes');
+    this.subscribe('users');
+
     this.helpers({
     	home() {
     		return Homes.findOne({
     			_id: $stateParams.homeId
     		});
-    	}
+    	},
+      users() {
+        return Meteor.users.find({});
+      }
     });
   }
 
@@ -29,7 +35,8 @@ class HomeDetails {
   	}, {
   		$set: {
   			name: this.home.name,
-  			description: this.home.description
+  			description: this.home.description,
+        public: this.home.public
   		}
   	}, (error) => {
   		if (error) {

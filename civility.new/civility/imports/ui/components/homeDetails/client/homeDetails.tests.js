@@ -12,7 +12,8 @@ describe('HomeDetails', () => {
     const home = {
       _id: 'homeId',
       name: 'Foo',
-      description: 'Birthday of Foo'
+      description: 'Birthday of Foo',
+      public: true
     };
  
     beforeEach(() => {
@@ -40,7 +41,8 @@ describe('HomeDetails', () => {
         expect(Homes.update.calls.mostRecent().args[1]).toEqual({
           $set: {
             name: home.name,
-            description: home.description
+            description: home.description,
+            public: home.public
           }
         });
       });
