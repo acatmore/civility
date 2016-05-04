@@ -1,5 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+
+import {Meteor} from 'meteor/meteor';
  
 import './homeRemove.html';
 import {homes} from '../../../api/homes';
@@ -7,6 +9,7 @@ import {homes} from '../../../api/homes';
 class HomeRemove {
   remove() {
     if (this.home) {
+      this.home.owner = Meteor.user()._id;
     	Homes.remove(this.home._id);
     }
   }

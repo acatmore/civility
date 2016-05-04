@@ -19,13 +19,15 @@ import {name as HomeDetails} from '../homeDetails/homeDetails';
 		uiRouter,
 		HomesList,
 		Navigation,
-		HomeDetails
+		HomeDetails,
+		'accounts.ui'
 	]).component(name, {
 		templateUrl: `imports/ui/components/${name}/${name}.html`,
 		controllerAs: name,
 		controller: Civility
 	})
-	.config(config);
+	.config(config)
+	.run(run);
 
 	function config($locationProvider, $urlRouterProvider) {
 		'ngInject';
@@ -35,4 +37,13 @@ import {name as HomeDetails} from '../homeDetails/homeDetails';
 		$urlRouterProvider.otherwise('/homes');
 	}
 
+	function run($rootScope, $state) {
+		'ngInject';
 
+		$rootScope.$on('$stateChangeError',
+			(event, toState, toParams, fromState, fromParams, error) => {
+				if (error === 'AUTH_REQUIRED') {
+					$state.go('homes');
+				}
+			});
+	}

@@ -1,5 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+
+import {Meteor} from 'meteor/meteor';
  
 import './homeAdd.html';
 import {Homes} from '../../../api/homes';
@@ -10,6 +12,7 @@ class HomeAdd {
 	}
 
 	submit() {
+		this.home.owner = Meteor.user()._id;
 		Homes.insert(this.home);
 		this.reset();
 	}

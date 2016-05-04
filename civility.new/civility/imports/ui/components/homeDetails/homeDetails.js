@@ -1,6 +1,8 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
+
+import {Meteor} from 'meteor/meteor';
  
 import './homeDetails.html';
  
@@ -57,6 +59,15 @@ function config($stateProvider) {
 
 	$stateProvider.state('homeDetails', {
 		url: '/homes/:homeId',
-		template: '<home-details></home-details>'
+		template: '<home-details></home-details>',
+    resolve: {
+      currentUser($q) {
+        if (Meteor.userId() === null) {
+          return $q.reject('AUTH_REQUIRED');
+        } else {
+          return $q.resolve();
+        }
+      }
+    }
 	});
 }
