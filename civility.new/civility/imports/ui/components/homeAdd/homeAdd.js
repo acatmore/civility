@@ -12,7 +12,6 @@ class HomeAdd {
 	submit() {
 		Homes.insert(this.home);
 		this.reset();
-		console.log('submit:', this.home);
 	}
 
 	reset() {

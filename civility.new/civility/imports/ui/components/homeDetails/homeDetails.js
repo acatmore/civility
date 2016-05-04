@@ -5,10 +5,37 @@ import uiRouter from 'angular-ui-router';
 import './homeDetails.html';
  
 class HomeDetails {
-  constructor($stateParams) {
+  constructor($stateParams, $scope, $reactive) {
     'ngInject';
+
+    $reactive(this).attach($scope);
     
     this.homeId = $stateParams.homeId;
+
+    this.helpers({
+    	home() {
+    		return Homes.findOne({
+    			_id: $stateParams.homeId
+    		});
+    	}
+    });
+  }
+
+  save() {
+  	Homes.update({
+  		_id: this.home._id
+  	}, {
+  		$set: {
+  			name: this.home.name,
+  			description: this.home.description
+  		}
+  	}, (error) => {
+  		if (error) {
+  			console.log('unable to update home');
+  		} else {
+  			console.log('Done!')
+  		}
+  	});
   }
 }
  
@@ -29,7 +56,7 @@ function config($stateProvider) {
 	'ngInject';
 
 	$stateProvider.state('homeDetails', {
-		url: '/homes/homeId',
+		url: '/homes/:homeId',
 		template: '<home-details></home-details>'
 	});
 }

@@ -1,1 +1,8 @@
-The home you selected is: {{homeDetails.homeId}}
+The home you selected is: 
+<form>
+	Home Name: <input type="text" ng-model="homeDetails.home.name" />
+	Description: <input type="text" ng-model="homeDetails.home.description" />
+	<button ng-click="homeDetails.save()">Save</button>
+</form>
+
+<button ui-sref="homes">Back</button>
