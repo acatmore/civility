@@ -3,8 +3,12 @@ import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 
 import {Meteor} from 'meteor/meteor';
- 
+
+import {Homes} from '../../../api/homes'; 
 import './homeDetails.html';
+
+import { name as HomeUninvited } from '../homeUninvited/homeUninvited';
+
  
 class HomeDetails {
   constructor($stateParams, $scope, $reactive) {
@@ -53,7 +57,8 @@ const name = 'homeDetails';
 // create a module
 export default angular.module(name, [
   angularMeteor,
-  uiRouter
+  uiRouter,
+  HomeUninvited
 ]).component(name, {
   templateUrl: `imports/ui/components/${name}/${name}.html`,
   controllerAs: name,

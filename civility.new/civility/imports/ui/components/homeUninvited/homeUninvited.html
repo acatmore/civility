@@ -1,0 +1,6 @@
+<ul>
+  Users:
+  <li ng-repeat="user in homeUninvited.users | uninvitedFilter:homeUninvited.home">
+    <div>{{ user | displayNameFilter}</div>
+  </li>
+</ul>
