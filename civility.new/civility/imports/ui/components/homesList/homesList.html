@@ -1,15 +1,25 @@
-<!-- <home-add></home-add>
+ <home-add></home-add>
+
+<input type="search" ng-model="homesList.searchText" placeHolder="search" />
+
+<homes-sort on-change="homesList.sortChanged(sort)" property="name" order="1"></homes-sort>
 
 <ul>
-	<li ng-repeat="home in homesList.homes">
+  <li dir-paginate="home in homesList.homes | itemsPerPage: homesList.perPage" total-items="homesList.homesCount">
+ 
 		<a ui-sref="homeDetails({homeId: home._id})">
 			{{home.name}}
 		</a>
 		<p>{{home.description}}</p>
 		<home-remove home="home"></home-remove>
 	</li>
-</ul> -->
-<div class="container-fluid">
+</ul> 
+<dir-pagination-controls on-page-change="partiesList.pageChanged(newPageNumber)"></dir-pagination-controls>
+
+
+
+
+<!-- <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
       <home-add ng-show="homesList.isLoggedIn"></home-add>
@@ -74,4 +84,4 @@
       <homes-map homes="homesList.homes"></homes-map>
     </div>
   </div>
-</div>
+</div> -->
