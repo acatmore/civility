@@ -1,4 +1,4 @@
-<home-add></home-add>
+<!-- <home-add></home-add>
 
 <ul>
 	<li ng-repeat="home in homesList.homes">
@@ -8,4 +8,70 @@
 		<p>{{home.description}}</p>
 		<home-remove home="home"></home-remove>
 	</li>
-</ul>
+</ul> -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <home-add ng-show="homesList.isLoggedIn"></home-add>
+ 
+      <div class="alert alert-warning" role="alert" ng-hide="homesList.isLoggedIn">
+        <strong>Warning!</strong>
+        Log in to create a home!
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>List of homes:</h2>
+      <form class="form-inline">
+        <div class="form-group">
+          <input type="search" ng-model="homesList.searchText" placeholder="Search" class="form-control"/>
+        </div>
+        <homes-sort class="form-group" on-change="homesList.sortChanged(sort)" property="name" order="1"></homes-sort>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="homes">
+        <li dir-paginate="home in homesList.homes | itemsPerPage: homesList.perPage" total-items="homesList.homesCount">
+          <div class="row">
+            <div class="col-sm-8">
+              <h3 class="home-name">
+                <a ui-sref="homeDetails({ homeId: home._id })">{{home.name}}</a>
+              </h3>
+              <p class="home-description">
+                {{home.description}}
+              </p>
+            </div>
+            <div class="col-sm-4">
+              <home-remove home="home" ng-show="homesList.isOwner(home)"></home-remove>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <home-rsvp home="home" ng-show="homesList.isLoggedIn"></home-rsvp>
+              <div class="alert alert-warning" role="alert" ng-hide="homesList.isLoggedIn">
+                <strong>Warning!</strong>
+                <i>Sign in to RSVP for this home.</i>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <home-creator home="home"></home-creator>
+            </div>
+            <div class="col-md-8">
+              <home-rsvps-list rsvps="home.rsvps"></home-rsvps-list>
+            </div>
+          </div>
+        </li>
+      </ul>
+ 
+      <dir-pagination-controls on-page-change="homesList.pageChanged(newPageNumber)"></dir-pagination-controls>
+    </div>
+    <div class="col-md-6">
+      <homes-map homes="homesList.homes"></homes-map>
+    </div>
+  </div>
+</div>

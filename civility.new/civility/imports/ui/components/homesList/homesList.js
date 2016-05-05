@@ -13,12 +13,22 @@ import {name as HomeRemove} from '../homeRemove/homeRemove';
 			'ngInject';
 			
 			$reactive(this).attach($scope);
-
-			this.subscribe('homes');
+			this.perPage = 5;
+			this.page = 1;
+			this.sort = {
+				name: 1
+			};
+			this.subscribe('homes', () => [{
+				limit: parseInt(this.perPage),
+				skip: parseInt((this.getReactiviley('page') -1) * this.perPage),
+				sort: this.getReactiviley('sort')}
+				]);
 
 			this.helpers({
 				homes() {
-					return Homes.find({});
+					return Homes.find({}, {
+						sort: this.getReactiviley('sort')
+					});
 
 				}
 			});

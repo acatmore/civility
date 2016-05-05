@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Homes } from './collection';
  
 if (Meteor.isServer) {
-  Meteor.publish('homes', function() {
+  Meteor.publish('homes', function(options) {
     const selector = {
       $or: [{
         // the public homes
@@ -26,6 +26,6 @@ if (Meteor.isServer) {
       }]
     };
  
-    return Homes.find(selector);
+    return Homes.find(selector, options);
   });
 }
