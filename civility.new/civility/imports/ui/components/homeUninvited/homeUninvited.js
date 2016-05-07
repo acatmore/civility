@@ -19,8 +19,20 @@ class HomeUninvited {
       }
     });
   }
+
+  invite(user) {
+  Meteor.call('invite', this.home._id, user._id,
+    (error) => {
+      if (error) {
+        console.log('Oops, unable to invite');
+      } else {
+        console.log('Invited!');
+      }
+    });
+  }
+
 }
- 
+
 const name = 'homeUninvited';
  
 // create a module

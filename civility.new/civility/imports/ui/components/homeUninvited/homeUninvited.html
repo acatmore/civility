@@ -2,5 +2,6 @@
   Users:
   <li ng-repeat="user in homeUninvited.users | uninvitedFilter:homeUninvited.home">
     <div>{{ user | displayNameFilter}</div>
+    <button ng-click="homeUninvited.invite(user)">Invite</button>
   </li>
 </ul>
