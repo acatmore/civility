@@ -3,4 +3,4 @@ An app to help split and manage financial transactions for roommates of a househ
 
 Future plans for this app include: Creating a chore collections and enable text messaging for chore reminders.
 
-This is a work in progress
+This is a work in progress: currently converting into angular-meteor
