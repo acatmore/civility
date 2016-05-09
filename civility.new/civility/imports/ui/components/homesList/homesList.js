@@ -10,7 +10,9 @@ import {Homes} from '../../../api/homes/index';
 import {name as HomesSort} from '../homesSort/homesSort';
 import {name as HomeAdd} from '../homeAdd/homeAdd';
 import {name as HomeRemove} from '../homeRemove/homeRemove';
-import { name as HomeCreator } from '../homeCreator/homeCreator';
+import {name as HomeCreator} from '../homeCreator/homeCreator';
+// import {name as homeMove} from '../homeMove/homeMove';
+// import {name as ResidentList} from '../residentList/residentList';
 // if (Meteor.isClient) {
 
 	class HomesList {
@@ -62,7 +64,9 @@ import { name as HomeCreator } from '../homeCreator/homeCreator';
 		uiRouter,
 		utilsPagination,
 		HomesSort,
-		HomeCreator
+		HomeCreator,
+		// HomeMove,
+		// ResidentList
 	]).component(name, {
 		templateUrl: `imports/ui/components/${name}/${name}.html`,
 		controllerAs: name,

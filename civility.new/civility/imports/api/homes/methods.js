@@ -15,7 +15,7 @@ function getContactEmail(user) {
   return null;
 }
  
-export function invite(partyId, userId) {
+export function invite(homeId, userId) {
   check(homeId, String);
   check(userId, String);
  
@@ -61,7 +61,84 @@ export function invite(partyId, userId) {
     }
   }
 }
+
+export function move(homeId, move) {
+  check(homeId, String);
+  check(move, String);
+ 
+  if (!this.userId) {
+    throw new Meteor.Error(403, 'You must be logged in to move');
+  }
+ 
+  if (!_.contains(['yes', 'no', 'maybe'], move)) {
+    throw new Meteor.Error(400, 'Invalid move');
+  }
+ 
+  const home = Homes.findOne({
+    _id: homeId,
+    $or: [{
+      // is public
+      $and: [{
+        public: true
+      }, {
+        public: {
+          $exists: true
+        }
+      }]
+    },{
+      // is owner
+      $and: [{
+        owner: this.userId
+      }, {
+        owner: {
+          $exists: true
+        }
+      }]
+    }, {
+      // is invited
+      $and: [{
+        invited: this.userId
+      }, {
+        invited: {
+          $exists: true
+        }
+      }]
+    }]
+  });
+ 
+  if (!home) {
+    throw new Meteor.Error(404, 'No such home');
+  }
+ 
+  const hasUserMove = _.findWhere(home.moves, {
+    user: this.userId
+  });
+ 
+  if (!hasUserMove) {
+    // add new move entry
+    Homes.update(homeId, {
+      $push: {
+        move: {
+          move,
+          user: this.userId
+        }
+      }
+    });
+  } else {
+    // update move entry
+    const userId = this.userId;
+    Homes.update({
+      _id: homeId,
+      'moves.user': userId
+    }, {
+      $set: {
+        'moves.$.move': move
+      }
+    });
+  }
+}
  
 Meteor.methods({
-  invite
+  invite,
+  move
 });
