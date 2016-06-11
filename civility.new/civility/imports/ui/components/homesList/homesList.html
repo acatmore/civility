@@ -1,13 +1,13 @@
  <home-add></home-add>
 
-<input type="search" ng-model="homesList.searchText" placeHolder="search" />
+<input type="search" ng-model="homesList.searchText" placeholder="Search" />
 
 <homes-sort on-change="homesList.sortChanged(sort)" property="name" order="1"></homes-sort>
 
 <ul>
   <li dir-paginate="home in homesList.homes | itemsPerPage: homesList.perPage" total-items="homesList.homesCount">
  
-		<a ui-sref="homeDetails({homeId: home._id})">
+		<a ui-sref="homeDetails({ homeId: home._id })">
 			{{home.name}}
 		</a>
 		<p>{{home.description}}</p>
@@ -17,7 +17,7 @@
     <home-creator home="home"></home-creator>
 	</li>
 </ul> 
-<dir-pagination-controls on-page-change="partiesList.pageChanged(newPageNumber)"></dir-pagination-controls>
+<dir-pagination-controls on-page-change="homesList.pageChanged(newPageNumber)"></dir-pagination-controls>
 
 
 
